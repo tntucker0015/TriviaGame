@@ -1,5 +1,21 @@
 body {
-    background-image: url(../assets/images/animal.jpg);
+    background-color: black;
+}
+
+.container {
+    position: relative;
+    top: -30px;
+    background-image: url(../images/animal.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
     max-width: 100%;
-    max-height: 500px;
+    height: 500px;
+    text-align: center;
+}
+#questions {
+    position: relative;
+    top: 100px;
+}
+p {
+    color: red;
 }

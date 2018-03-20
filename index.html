@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia Game</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel=stylesheet type="text/css" href="assets/css/style.css"> 
+    <link rel=stylesheet type="text/css" href="assets/css/style.css" /> 
 </head>
 <body>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <p>Q. Which bird has the largest wingspan of any living bird?</p>
-   <p>   A. The wandering albatross.</p>
+   <div class="container">
+       <div class="row">
+           <div id="questions" class="column">
+                <div id="buttons">
+                        <button id="start"><h2>Start</h2></button>
+                <p>Q. Which bird has the largest wingspan of any living bird?</p>
+                <p>   A. The wandering albatross.</p>
+                </div>
+            </div>
+       </div>
+   </div>
     <script src="assets/javascript/game.js"></script>
 </body>
 </html>
