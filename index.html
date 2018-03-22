@@ -1,25 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia Game</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel=stylesheet type="text/css" href="assets/css/style.css" /> 
+    <link rel=stylesheet type="text/css" href="assets/css/style.css" />
 </head>
+
 <body>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <div class="container">
-       <div class="row">
-           <div id="questions" class="column">
-                <div id="buttons">
-                        <button id="start"><h2>Start</h2></button>
-                <p>Q. Which bird has the largest wingspan of any living bird?</p>
-                <p>   A. The wandering albatross.</p>
-                </div>
-            </div>
-       </div>
-   </div>
+    <div class="container">
+        <div id="header" class="row">Wild Kingdom Trivia</div>
+        <div id="topRow" class="row">
+            <section id="score" class="col xs-12 md-4">
+                <span id="correctGuesses">Correct Answers</span>
+                <br />
+                <span id="incrroectGuesses">incorrectGuesses: </span>
+            </section>
+            <section id="buttons" class="col xs-12 md-4">
+                <button id="start">
+                    <h2>Start Game</h2>
+                </button>
+                <button id="next">
+                    <h2>Next Question</h2>
+                </button>
+            </section>
+            <section id="timer" class="col xs-12 md-4">
+                <span id="timeLeft">Time Left</span>
+            </section>
+        </div>
+        <div id="questions" class="row">
+            <span id="triviaQuestion"></span>
+        </div>
+        <div id="answers" class="row">
+            <form>
+                <input type="radio">
+                <span id="answersA"></span>
+                </input><br />
+
+                <input type="radio">
+                <span id="answersB"></span>
+                </input><br />
+
+                <input type="radio">
+                <span id="answersC"></span>
+                </input><br />
+                <input type="radio">
+                <span id="answersD"></span>
+                </input><br />
+            </form>
+        </div>
+    </div>
+    </div>
+    <script src="assets/javascript/questions.js"></script>
     <script src="assets/javascript/game.js"></script>
 </body>
+
 </html>

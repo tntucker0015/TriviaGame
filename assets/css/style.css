@@ -1,21 +1,70 @@
 body {
     background-color: black;
+    color: orangered;
+}
+
+#header {
+    height: 344px;
+    background-image: url(../images/animal.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+#topRow {
+    background-color: black;
+}
+
+#score, #buttons, #timer{
+    border: solid 3px gray;
+    display: block;
+    width: 30%;
+    float: left;
+}
+
+#correctGuesses {
+    width: 100%;
+}
+
+#incoreectGuesses {
+    width: 100%;
+}
+
+
+#start {
+    background-image: url(../images/zebra.jpg);
+    color: orangered;
+    border: solid 3px orangered;
+    transition: 1.5s;
+}
+
+#start:hover {
+    background-image: url(../images/reptile.jpg);
+    color: white;
+    border: solid 3px white;
+}
+
+.answers {
+    margin: auto;
+    
 }
 
 .container {
     position: relative;
     top: -30px;
-    background-image: url(../images/animal.jpg);
+    /* background-image: url(../images/animal.jpg);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100%; */
     max-width: 100%;
     height: 500px;
     text-align: center;
 }
 #questions {
     position: relative;
-    top: 100px;
+    margin: auto;
+    align-content: center;
 }
-p {
-    color: red;
+#triviaQuestion {
+    margin-left: 25%;
+    margin-right: 25%;
+    color: orangered;
 }
