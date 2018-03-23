@@ -36,45 +36,55 @@ function getAnswers(question) {
 }
 function sptAns () {
     var x = (getAnswers(currentQuestion.answers));
-    console.log(x);
+    
     $("#answersA").text(x[0]);
     $("#answersB").text(x[1]);
     $("#answersC").text(x[2]);
     $("#answersD").text(x[3]); 
-    console.log(x[0]);
-    console.log(x[1]);
-    console.log(x[2]);
-    console.log(x[3]);
-}
+   }
 
 function nextQuestion () {
     currentQuestion = getRandomQuestion();
-    // console.log(currentQuestion);
-    // console.log(getAnswers(currentQuestion));
-    $("#triviaQuestion").text(currentQuestion.question);
-    // $("#answers").text(getAnswers(currentQuestion.answers));
-    // $("#answersA").text(getAnswers(currentQuestion.answers));
-    // $("#answersB").text(getAnswers(currentQuestion.answers));
-    // $("#answersC").text(getAnswers(currentQuestion.answers));
-    // $("#answersD").text(getAnswers(currentQuestion.answers));   
+    console.log(currentQuestion);
+    $("#triviaQuestion").text(currentQuestion.question);  
     sptAns(); 
+    run();
 }
 
 function startGame() {
   currentQuestion = getRandomQuestion();
   $("#triviaQuestion").text(currentQuestion.question);
-//   $("#answers").text(getAnswers(currentQuestion.answers));
-    $("#answersA").text(getAnswers(currentQuestion.answers));
-    $("#answersB").text(getAnswers(currentQuestion.answers));
-    $("#answersC").text(getAnswers(currentQuestion.answers));
-    $("#answersD").text(getAnswers(currentQuestion.answers));    
+  sptAns();  
+  run();
 
 }
+//  start timefor counting down
+var timer = 5;
+var intervalId;
+// runs the clock 
+function run() {
+    clearInterval(this.intervalId);
+    this.intervalId = setInterval(countdown, 1000);
+  }
+//   decreases the time
+function countdown() {
+    timer--;
+    $("#timeLeft").text(timer);
+    if (timer === 0) {
+        reset();
+        nextQuestion();
+    }
+}
 
+function reset() {
+    this.timer=5;
+    clearInterval(this.intervalId);
+}
 
 $("body").on("click", "#start", function () {
     startGame();
 });
+
 $("body").on("click", "#next", function () {
     nextQuestion();
 });
