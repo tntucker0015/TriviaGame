@@ -9,6 +9,16 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
 }
+ 
+#answers {
+    width:100%;
+}
+#answersA, #answersB, #answersC, #answersD {
+    width: 100%;
+    background-color: greenyellow;
+    color: black;
+    margin-bottom: 3px;
+}
 
 #topRow {
     background-color: black;

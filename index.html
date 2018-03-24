@@ -15,9 +15,9 @@
         <div id="header" class="row">Wild Kingdom Trivia</div>
         <div id="topRow" class="row">
             <section id="score" class="col xs-12 md-4">
-                <span id="correctGuesses">Correct Answers</span>
+                <h4>Correct Answers: <span id="correctGuesses"></span></h4>
                 <br />
-                <span id="incrroectGuesses">incorrectGuesses: </span>
+                <h4>Incorrect Answers: </h4><span id="incorrectGuesses"></span></h4>
             </section>
             <section id="buttons" class="col xs-12 md-4">
                 <button id="start">
@@ -35,22 +35,15 @@
             <span id="triviaQuestion"></span>
         </div>
         <div id="answers" class="row">
-            <form>
-                <input type="radio">
-                <span id="answersA"></span>
-                </input><br />
+            <section class="col xs-3"></section>
+            <section class= "col xs-6">
+                <span type="button" class="userGuess" id="answersA"></span><br />
+                <span type="button" class="userGuess" id="answersB"></span><br />
+                <span type="button" class="userGuess" id="answersC"></span><br />
+                <span type="button" class="userGuess" id="answersD"></span><br />
+            </section>
+            <section class="col xs-3"></section>
 
-                <input type="radio">
-                <span id="answersB"></span>
-                </input><br />
-
-                <input type="radio">
-                <span id="answersC"></span>
-                </input><br />
-                <input type="radio">
-                <span id="answersD"></span>
-                </input><br />
-            </form>
         </div>
     </div>
     </div>
