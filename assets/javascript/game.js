@@ -1,10 +1,5 @@
-// to do list:
-// add your score area
-    //with correct answers
-    // with incorrect answers
-
-
-
+var timer = 60;
+var intervalId;
 var currentQuestion;
 var answerA = [];
 var answerB = [];
@@ -14,21 +9,34 @@ var userGuess = [];
 var game = {
     correctGuesses: 0,
     incorrectGuesses: 0,
+    u: '',
 };
 
+function responseW (){
+    $("#responseW").text("");
+}
+
+function responseL (){
+    $("#responseL").text("");
+}
 function verify() {
-    var CA = [];
-    CA.push(this.currentQuestion.answer);
-    console.log(userGuess);
-    console.log(CA);
- if (userGuess === CA) {
-     console.log("you got this");
-//      game.correctGuesses++;
-//      $("#correctGuesses").text(game.correctGuesses);
- } else {
-     console.log("you don know anything");
-//      game.incorrectGuesses++;
-//      $("#incorrectGuesses").text(game.incorectGuesses);
+    console.log(game.u);
+    console.log(this.currentQuestion.answer);
+ if (game.u === this.currentQuestion.answer) {
+     game.correctGuesses++;
+     $("#correctGuesses").text(game.correctGuesses);
+     $("#responseW").text("You guessed " + game.u + " and that is CORRECT!");
+     setTimeout(responseW, 2000);
+     reset();
+     nextQuestion();
+ } 
+ else {
+    game.incorrectGuesses++;
+    $("#responseL").text("You got eaten by a Lion...You Should Have Guesses " + this.currentQuestion.answer);
+    setTimeout(responseL, 2000);
+    $("#incorrectGuesses").text(game.incorrectGuesses);
+    reset();
+    nextQuestion();
  }
 }
 
@@ -42,7 +50,7 @@ function getAnswers(question) {
   answers.push(currentQuestion.answer);
 
   do {
-    // BUG:
+    // BUG: same answer popping up multiple times
     var newQuestion = getRandomQuestion();
     if (!answers.indexOf(newQuestion.answer) > -1) {
       answers.push(newQuestion.answer);
@@ -67,41 +75,44 @@ function sptAns () {
     answerD.push(x[3]);
    }
 
-// function nextQuestion () {
-//     reset();
-//     currentQuestion = getRandomQuestion();
-//     $("#triviaQuestion").text(currentQuestion.question);  
-//     sptAns(); 
-//     run();
-// }
+function nextQuestion () {
+    currentQuestion = getRandomQuestion();
+    $("#triviaQuestion").text(currentQuestion.question);  
+    sptAns(); 
+    run();
+}
 
 function startGame() {
-    reset();
+  game.correctGuesses = 0;
+  game.incorrectGuesses = 0;
+  $("#incorrectGuesses").text(game.incorrectGuesses);
+  $("#correctGuesses").text(game.correctGuesses);
+  reset();
   currentQuestion = getRandomQuestion();
   $("#triviaQuestion").text(currentQuestion.question);
   sptAns();  
   run();
-
+  off();
 }
-//  start timefor counting down
-var timer = 125;
-var intervalId;
+
 // runs the clock 
 function run() {
     clearInterval(this.intervalId);
     this.intervalId = setInterval(countdown, 1000);
   }
-//   decreases the time
+//   decreases the time to 0;
 function countdown() {
     timer--;
     $("#timeLeft").text(timer);
+    //  displays overlay when timer gets to 0;
     if (timer === 0) {
-        // nextQuestion();
+        clearInterval(this.intervalId);
+        gameOver();
+        return false;
     }
 }
 
 function reset() {
-    this.timer=125;
     answerA.length = 0;
     answerB.length = 0;
     answerC.length = 0;
@@ -110,32 +121,47 @@ function reset() {
     clearInterval(this.intervalId);
 }
 
+function gameOver() {
+    timer = 30;
+    document.getElementById("overlay").style.display = "block";
+    $("#overlay").text("GAME OVER");
+    document.getElementById("overlay1").style.display = "block";
+    $("#overlay1").text("Correct Answers: " + game.correctGuesses);
+    document.getElementById("overlay2").style.display = "block";
+    $("#overlay2").text("Incorrect Answers: " + game.incorrectGuesses);
+
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("overlay1").style.display = "none";
+    document.getElementById("overlay2").style.display = "none";
+
+}
+
 $("body").on("click", "#start", function () {
     startGame();
 });
 
-// $("body").on("click", "#next", function () {
-//     nextQuestion();
-// });
-
 $("body").on("click", "#answersA", function () {
     userGuess.push(answerA[0]);
+    game.u = userGuess[0].toString();
     verify();
 
 });
 $("body").on("click", "#answersB", function () {
     userGuess.push(answerB[0]);
-    console.log(userGuess);
+    game.u = userGuess[0].toString();
     verify();
 });
 $("body").on("click", "#answersC", function () {
     userGuess.push(answerC[0]);
-    console.log(userGuess);
+    game.u = userGuess[0].toString();
     verify();
 });
 
 $("body").on("click", "#answersD", function () {
     userGuess.push(answerD[0]);
-    console.log(userGuess);
+    game.u = userGuess[0].toString();
     verify();
 });

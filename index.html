@@ -12,27 +12,35 @@
 <body>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <div class="container">
-        <div id="header" class="row">Wild Kingdom Trivia</div>
+        <div id="overlay" ></div>
+        <div id="overlay1"></div>
+        <div id="overlay2"></div>
+        <div id="header" class="row">
+            <h1 id="wild">Wild</h1>
+            <h1 id="kingdom">Kingdom</h1>
+            <h1 id="trivia">Trivia</h1>
+        </div>
         <div id="topRow" class="row">
             <section id="score" class="col xs-12 md-4">
                 <h4>Correct Answers: <span id="correctGuesses"></span></h4>
                 <br />
-                <h4>Incorrect Answers: </h4><span id="incorrectGuesses"></span></h4>
+                <h4>Incorrect Answers: <span id="incorrectGuesses"></span></h4>
             </section>
             <section id="buttons" class="col xs-12 md-4">
                 <button id="start">
                     <h2>Start Game</h2>
                 </button>
-                <button id="next">
-                    <h2>Next Question</h2>
-                </button>
             </section>
             <section id="timer" class="col xs-12 md-4">
-                <span id="timeLeft">Time Left</span>
+                <h2>Time Left: </h2><span id="timeLeft"></span>
             </section>
         </div>
         <div id="questions" class="row">
+            <section class="col xs-3"></section>
+            <section class="col xs-6">
             <span id="triviaQuestion"></span>
+            </section>
+            <section class="col xs-3"></section>
         </div>
         <div id="answers" class="row">
             <section class="col xs-3"></section>
@@ -43,8 +51,10 @@
                 <span type="button" class="userGuess" id="answersD"></span><br />
             </section>
             <section class="col xs-3"></section>
-
         </div>
+        <div id="responseW" class="row"></div>
+        <div id="responseL" class="row"></div>
+        <!-- <button onclick="on()">Turn on overlay effect</button> -->
     </div>
     </div>
     <script src="assets/javascript/questions.js"></script>

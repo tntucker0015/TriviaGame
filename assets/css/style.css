@@ -5,13 +5,41 @@ body {
 
 #header {
     height: 344px;
+text-align: center;
     background-image: url(../images/animal.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
+    color: orangered;
+}
+#wild{
+ font-size: 60px;
+ position: relative;
+ top: 80px;
+ left: 425px;
+transform: rotate(-20deg);
 }
  
+#kingdom {
+font-size: 60px;
+position: relative;
+top: 60px;
+left: 425px;
+}
+
+#trivia {
+font-size: 60px;
+position: relative;
+top: 80px;
+left: 425px;
+transform: rotate(20deg);
+}
+
 #answers {
     width:100%;
+    margin-left: 0;
+}
+#questions {
+    width: 100%;
 }
 #answersA, #answersB, #answersC, #answersD {
     width: 100%;
@@ -25,7 +53,6 @@ body {
 }
 
 #score, #buttons, #timer{
-    border: solid 3px gray;
     display: block;
     width: 30%;
     float: left;
@@ -45,6 +72,7 @@ body {
     color: orangered;
     border: solid 3px orangered;
     transition: 1.5s;
+    margin-top: 25px;
 }
 
 #start:hover {
@@ -61,9 +89,6 @@ body {
 .container {
     position: relative;
     top: -30px;
-    /* background-image: url(../images/animal.jpg);
-    background-repeat: no-repeat;
-    background-size: 100%; */
     max-width: 100%;
     height: 500px;
     text-align: center;
@@ -74,7 +99,61 @@ body {
     align-content: center;
 }
 #triviaQuestion {
-    margin-left: 25%;
-    margin-right: 25%;
     color: orangered;
+}
+
+#responseW {
+    color: greenyellow;
+}
+
+#responseL {
+    color: red;
+}
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%; 
+    height: 100%; 
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 100px;
+    font-size: 75px;
+    background-image: url(../images/giraffe.jpg);
+    /* background-color: rgba(0,0,0,0.5); */
+    z-index: 4;
+    color: blue;
+}
+
+#overlay1 {
+    position: fixed;
+    display: none;
+    width: 100%; 
+    height: 100%; 
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 200px;
+    font-size: 36px;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 4;
+    color: white;
+}
+
+#overlay2 {
+    position: fixed;
+    display: none;
+    width: 100%; 
+    height: 100%; 
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 250px;
+    font-size: 36px;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 4;
+    color: white;
 }
