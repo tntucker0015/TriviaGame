@@ -50,9 +50,8 @@ function getAnswers(question) {
   answers.push(currentQuestion.answer);
 
   do {
-    // BUG: same answer popping up multiple times
     var newQuestion = getRandomQuestion();
-    if (!answers.indexOf(newQuestion.answer) > -1) {
+    if (answers.indexOf(newQuestion.answer) === -1) {
       answers.push(newQuestion.answer);
     } 
   } while (answers.length < 4);
